@@ -114,13 +114,35 @@ gulp.task('extras', function () {
         .pipe(gulp.dest(settings.distPaths.app));
 });
 
-gulp.task('generate-sg', function () {
-    return gulp.src(['dist/**/*.*', 'src/styleguide/*.html', 'src/styleguide/assets/**/*.*'], { dot: true })
+gulp.task('html-sg', function () {
+    var jsFilter = $.filter('/**/*.js');
+    var cssFilter = $.filter('/**/*.css');
+
+    return gulp.src('src/styleguide/*.html')
+        .pipe($.useref.assets())
+        .pipe(jsFilter)
+        .pipe($.uglify())
+        .pipe(jsFilter.restore())
+        .pipe(cssFilter)
+        .pipe($.csso())
+        .pipe(cssFilter.restore())
+        .pipe($.useref.restore())
+        .pipe($.useref())
+        .pipe(gulp.dest('styleguide/'))
+        .pipe($.size());
+});
+gulp.task('generate-sg-project', function () {
+    return gulp.src(['dist/**/*.*'], { dot: true })
         .pipe(gulp.dest('styleguide/'));
 });
+gulp.task('generate-sg', function () {
+    return gulp.src(['src/styleguide/assets/**/*.*'], { dot: true })
+        .pipe(gulp.dest('styleguide/assets'));
+});
+
 gulp.task('deploy-sg', function() {
-    return gulp.src('styleguide/**/*.*')
-        .pipe($.deploy());
+    return gulp.src('styleguide')
+        .pipe($.subtree());
 });
 
 gulp.task('clean', function () {
@@ -128,7 +150,7 @@ gulp.task('clean', function () {
 });
 
 gulp.task('build', ['jshint', 'html', 'images', 'fonts', 'extras']);
-gulp.task('build-sg', ['build', 'generate-sg']);
+gulp.task('build-sg', ['build', 'generate-sg-project', 'generate-sg', 'html-sg']);
 gulp.task('serve', ['wiredep', 'watch']);
 
 gulp.task('default', ['clean'], function () {
@@ -175,7 +197,8 @@ gulp.task('wiredep', function() {
             exclude: [
                 'modernizr.js',
                 'foundation.css'
-                ]
+            ],
+            ignorePath: '../'
         }))
         .pipe(gulp.dest('src/styleguide/layouts'));
 });

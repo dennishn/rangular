@@ -22,12 +22,36 @@
     <!-- endbuild -->
   </head>
   <body>
-    <h1 id="{{title}}">{{title}}</h1>
-    {{#markdown}}
-      {{> body}}
-    {{/markdown}}
+    <div class="off-canvas-wrap" data-offcanvas>
+        <div class="inner-wrap">
+            <nav class="tab-bar">
+                <section class="left-small">
+                    <a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
+                </section>
 
-    {{> navigation}}
+                <section class="middle tab-bar-section">
+                    <h1 class="title">Foundation</h1>
+                </section>
+
+            </nav>
+
+            <aside class="left-off-canvas-menu">
+                {{> navigation}}
+            </aside>
+
+            <section class="main-section">
+                <h1 id="{{title}}">{{title}}</h1>
+                {{#markdown}}
+                  {{> body}}
+                {{/markdown}}
+            </section>
+
+            <a class="exit-off-canvas"></a>
+
+        </div>
+    </div>
+
+
 
     <!-- build:js scripts/app.js -->
     <!-- bower:js -->

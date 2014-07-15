@@ -22,26 +22,21 @@
     <!-- endbuild -->
   </head>
   <body>
-    <h1 id="Home">Home</h1>
-    <h1>index.html</h1>
+    <div class="off-canvas-wrap" data-offcanvas>
+        <div class="inner-wrap">
+            <nav class="tab-bar">
+                <section class="left-small">
+                    <a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
+                </section>
 
-<pre><code class="language-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'hej'</span>);
-}</code></pre>
-<pre><code class="language-css"><span class="hljs-tag">body</span> <span class="hljs-rules">{
-    <span class="hljs-rule"><span class="hljs-attribute">color</span>:<span class="hljs-value"> tomato</span></span>;
-<span class="hljs-rule">}</span></span></code></pre>
-<pre><code class="language-sass"><span class="hljs-tag">body</span>
-    <span class="hljs-attribute">color</span><span class="hljs-value">: tomato;</span></code></pre>
-<pre><code class="language-scss"><span class="hljs-tag">body</span> <span class="hljs-rules">{
-    <span class="hljs-rule"><span class="hljs-attribute">color</span>:<span class="hljs-value"> $tomato</span></span>;
-<span class="hljs-rule">}</span></span></code></pre>
-<pre><code class="language-markup">&lt;<span class="hljs-keyword">div</span> <span class="hljs-type">class</span>=<span class="hljs-string">"test"</span>&gt;&lt;/<span class="hljs-keyword">div</span>&gt;</code></pre>
-<pre><code class="language-html">&lt;<span class="hljs-keyword">div</span> <span class="hljs-type">class</span>=<span class="hljs-string">"derp"</span>&gt;&lt;/<span class="hljs-keyword">div</span>&gt;</code></pre>
-<p>tomater</p>
+                <section class="middle tab-bar-section">
+                    <h1 class="title">Foundation</h1>
+                </section>
 
+            </nav>
 
-    <ul class="side-nav">
+            <aside class="left-off-canvas-menu">
+                <ul class="side-nav">
     <li class="heading">General</li>
     
         
@@ -145,6 +140,35 @@
         
     
 </ul>
+
+            </aside>
+
+            <section class="main-section">
+                <h1 id="Home">Home</h1>
+                <h1>index.html</h1>
+
+<pre><code class="language-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'hej'</span>);
+}</code></pre>
+<pre><code class="language-css"><span class="hljs-tag">body</span> <span class="hljs-rules">{
+    <span class="hljs-rule"><span class="hljs-attribute">color</span>:<span class="hljs-value"> tomato</span></span>;
+<span class="hljs-rule">}</span></span></code></pre>
+<pre><code class="language-sass"><span class="hljs-tag">body</span>
+    <span class="hljs-attribute">color</span><span class="hljs-value">: tomato;</span></code></pre>
+<pre><code class="language-scss"><span class="hljs-tag">body</span> <span class="hljs-rules">{
+    <span class="hljs-rule"><span class="hljs-attribute">color</span>:<span class="hljs-value"> $tomato</span></span>;
+<span class="hljs-rule">}</span></span></code></pre>
+<pre><code class="language-markup">&lt;<span class="hljs-keyword">div</span> <span class="hljs-type">class</span>=<span class="hljs-string">"test"</span>&gt;&lt;/<span class="hljs-keyword">div</span>&gt;</code></pre>
+<pre><code class="language-html">&lt;<span class="hljs-keyword">div</span> <span class="hljs-type">class</span>=<span class="hljs-string">"derp"</span>&gt;&lt;/<span class="hljs-keyword">div</span>&gt;</code></pre>
+<p>tomater</p>
+
+            </section>
+
+            <a class="exit-off-canvas"></a>
+
+        </div>
+    </div>
+
 
 
     <!-- build:js scripts/app.js -->

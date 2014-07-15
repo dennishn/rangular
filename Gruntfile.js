@@ -24,7 +24,7 @@ module.exports = function(grunt) {
         options: {
           flatten: false,
           assets: 'src/styleguide/assets',
-          projectassets: '../',
+          projectassets: '..',
           data: ['src/styleguide/data/*.json'],
           helpers: ['src/styleguide/helpers/*.js', '*-helpers', '*-helper'],
           partials: ['src/styleguide/partials/**/*.{html,scss}'],
